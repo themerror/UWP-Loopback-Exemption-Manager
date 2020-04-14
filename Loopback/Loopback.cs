@@ -70,7 +70,7 @@ namespace Loopback
         private static extern uint NetworkIsolationSetAppContainerConfig(uint pdwCntACs, SID_AND_ATTRIBUTES[] appContainerSids);
 
         // Use this API to convert a string SID into an actual SID
-        [DllImport("advapi32.dll", SetLastError = true)]
+        [DllImport("advapi32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
         internal static extern bool ConvertStringSidToSid(string strSid, out IntPtr pSid);
 
         [DllImport("advapi32", CharSet = CharSet.Auto, SetLastError = true)]
@@ -78,7 +78,7 @@ namespace Loopback
             [MarshalAs(UnmanagedType.LPArray)] byte[] pSID,
             out IntPtr ptrSid);
 
-        [DllImport("advapi32", CharSet = CharSet.Auto, SetLastError = true)]
+        [DllImport("advapi32", CharSet = CharSet.Unicode, SetLastError = true)]
         private static extern bool ConvertSidToStringSid(IntPtr pSid, out string strSid);
 
         // Use this API to convert a string reference (e.g. "@{blah.pri?ms-resource://whatever}") into a plain string
@@ -98,8 +98,10 @@ namespace Loopback
         //http://msdn.microsoft.com/en-gb/library/windows/desktop/hh968116.aspx
         private enum NETISO_FLAG
         {
+#pragma warning disable CA1712 // Do not prefix enum values with type name
             NETISO_FLAG_FORCE_COMPUTE_BINARIES = 0x1,
             NETISO_FLAG_MAX = 0x2
+#pragma warning restore CA1712 // Do not prefix enum values with type name
         }
 
         public class AppContainer
