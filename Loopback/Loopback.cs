@@ -6,11 +6,11 @@ using System.Text;
 namespace Loopback
 {
     /// <summary>
-    /// http://blogs.msdn.com/b/fiddler/archive/2011/12/10/fiddler-windows-8-apps-enable-LoopUtil-network-isolation-exemption.aspx
+    /// https://docs.microsoft.com/en-us/archive/blogs/fiddler/revisiting-fiddler-and-win8-immersive-applications
     /// </summary>
     public class LoopUtil
     {
-        //http://msdn.microsoft.com/en-us/library/windows/desktop/aa379595(v=vs.85).aspx
+        //https://docs.microsoft.com/zh-cn/windows/win32/api/winnt/ns-winnt-sid_and_attributes
         [StructLayoutAttribute(LayoutKind.Sequential)]
         internal struct SID_AND_ATTRIBUTES
         {
@@ -95,7 +95,7 @@ namespace Loopback
         //  _Out_  PINET_FIREWALL_APP_CONTAINER *ppPublicAppCs
         //);
 
-        //http://msdn.microsoft.com/en-gb/library/windows/desktop/hh968116.aspx
+        //https://docs.microsoft.com/zh-cn/windows/win32/api/netfw/ne-netfw-netiso_flag
         private enum NETISO_FLAG
         {
 #pragma warning disable CA1712 // Do not prefix enum values with type name
