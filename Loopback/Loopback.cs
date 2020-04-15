@@ -280,8 +280,7 @@ namespace Loopback
                 {
                     arr[count].Attributes = 0;
                     //TO DO:
-                    IntPtr ptr;
-                    ConvertStringSidToSid(Apps[i].StringSid, out ptr);
+                    ConvertStringSidToSid(Apps[i].StringSid, out IntPtr ptr);
                     arr[count].Sid = ptr;
                     count++;
                 }
