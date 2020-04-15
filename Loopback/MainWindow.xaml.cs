@@ -79,7 +79,15 @@ namespace Loopback
 
         private void txtFilter_KeyUp(object sender, KeyEventArgs e)
         {
-            Filter(txtFilter.Text, (bool)Loopback_Enabled.IsChecked, null);
+            bool isEnabledChecked = (bool)Loopback_Enabled.IsChecked;
+            if (isEnabledChecked)
+            {
+                Filter(txtFilter.Text, (bool)Loopback_Enabled.IsChecked, isEnabledChecked);
+            }
+            else
+            {
+                Filter(txtFilter.Text, (bool)Loopback_Disabled.IsChecked, isEnabledChecked);
+            }
         }
 
         private void Loopback_Click_Enabled(object sender, RoutedEventArgs e)
@@ -96,14 +104,14 @@ namespace Loopback
 
         private void Filter(string filter, bool Ischecked, bool? IsEnabled)
         {
-            string right = filter.ToUpper();
+            string appsInFilter = filter.ToUpper();
             appFiltered.Clear();
 
             foreach (LoopUtil.AppContainer app in _loop.Apps)
             {
-                string left = app.displayName.ToUpper();
+                string appName = app.displayName.ToUpper();
 
-                if (filter == String.Empty || left.Contains(right))
+                if (string.IsNullOrEmpty(filter) || appName.Contains(appsInFilter))
                 {
                     if (Ischecked == false || app.LoopUtil == IsEnabled)
                     {
