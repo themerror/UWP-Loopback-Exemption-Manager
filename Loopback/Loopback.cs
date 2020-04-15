@@ -106,21 +106,20 @@ namespace Loopback
 
         public class AppContainer
         {
-            public String appContainerName { get; set; }
-            public String displayName { get; set; }
-            public String workingDirectory { get; set; }
-            public String StringSid { get; set; }
+            public string appContainerName { get; set; }
+            public string displayName { get; set; }
+            public string workingDirectory { get; set; }
+            public string StringSid { get; set; }
             public List<uint> capabilities { get; set; }
             public bool LoopUtil { get; set; }
 
-            public AppContainer(String _appContainerName, String _displayName, String _workingDirectory, IntPtr _sid)
+            public AppContainer(string _appContainerName, string _displayName, string _workingDirectory, IntPtr _sid)
             {
-                this.appContainerName = _appContainerName;
-                this.displayName = _displayName;
-                this.workingDirectory = _workingDirectory;
-                String tempSid;
-                ConvertSidToStringSid(_sid, out tempSid);
-                this.StringSid = tempSid;
+                appContainerName = _appContainerName;
+                displayName = _displayName;
+                workingDirectory = _workingDirectory;
+                ConvertSidToStringSid(_sid, out string tempSid);
+                StringSid = tempSid;
             }
         }
 
@@ -165,8 +164,8 @@ namespace Loopback
         {
             foreach (SID_AND_ATTRIBUTES item in _AppListConfig)
             {
-                string left, right;
-                ConvertSidToStringSid(item.Sid, out left);
+                string right;
+                ConvertSidToStringSid(item.Sid, out string left);
                 ConvertSidToStringSid(intPtr, out right);
 
                 if (left == right)
@@ -250,7 +249,7 @@ namespace Loopback
 
             //uint retval2 = NetworkIsolationGetAppContainerConfig( out size, out arrayValue);
 
-            uint retval = NetworkIsolationEnumAppContainers((Int32)NETISO_FLAG.NETISO_FLAG_MAX, out size, out arrayValue);
+            uint retval = NetworkIsolationEnumAppContainers((int)NETISO_FLAG.NETISO_FLAG_MAX, out size, out arrayValue);
             _pACs = arrayValue; //store the pointer so it can be freed when we close the form
 
             var structSize = Marshal.SizeOf(typeof(INET_FIREWALL_APP_CONTAINER));
@@ -291,7 +290,9 @@ namespace Loopback
                 return true;
             }
             else
-            { return false; }
+            {
+                return false;
+            }
         }
 
         private int CountEnabledLoopUtil()
