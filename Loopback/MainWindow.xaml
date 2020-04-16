@@ -9,13 +9,13 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center">
             <Label VerticalContentAlignment="Center" Margin="10,0,0,0">Filter the Apps:</Label>
-            <TextBox Name="txtFilter" Grid.Row="0" Width="185" HorizontalAlignment="Left" Height="30" KeyUp="txtFilter_KeyUp" Margin="0,5" VerticalContentAlignment="Center"></TextBox>
-            <CheckBox Name="Loopback_Enabled" Click="Loopback_Click_Enabled" VerticalContentAlignment="Center" Margin="10,0">Enabled</CheckBox>
-            <CheckBox Name="Loopback_Disabled" Click="Loopback_Click_Disabled" VerticalContentAlignment="Center" Margin="10,0">Disabled</CheckBox>
-            <Button x:Name="btnSave" Width="100" Height="30" Click="btnSave_Click" Margin="10,5" Content="Save" />
+            <TextBox Name="txtFilter" Grid.Row="0" Width="185" HorizontalAlignment="Left" Height="30" KeyUp="txtFilter_KeyUp" Margin="0,5" VerticalContentAlignment="Center" Cursor="IBeam" Background="{x:Null}"/>
+            <CheckBox Name="Loopback_Enabled" Click="Loopback_Click_Enabled" VerticalContentAlignment="Center" Margin="10,0" Background="{x:Null}">Enabled</CheckBox>
+            <CheckBox Name="Loopback_Disabled" Click="Loopback_Click_Disabled" VerticalContentAlignment="Center" Margin="10,0" Background="{x:Null}">Disabled</CheckBox>
+            <Button x:Name="btnSave" Width="100" Height="30" Click="btnSave_Click" Margin="10,5" Content="Save" Background="#FFDDDDDD" />
             <Button x:Name="btnRefresh" Width="100" Height="30" Click="btnRefresh_Click" Margin="10,5" Content="Refresh" />
         </StackPanel>
-        <DataGrid x:Name="dgLoopback" AutoGenerateColumns="False" Grid.Row="1">
+        <DataGrid x:Name="dgLoopback" AutoGenerateColumns="False" Grid.Row="1" Background="{x:Null}" BorderBrush="White">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Exempt" Width="60" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
