@@ -48,7 +48,9 @@ namespace Loopback
                 Log(" saved loopback excemptions");
             }
             else
-            { Log(" ERROR SAVING"); }
+            {
+                Log(" ERROR SAVING");
+            }
         }
 
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
