@@ -164,9 +164,8 @@ namespace Loopback
         {
             foreach (SID_AND_ATTRIBUTES item in _AppListConfig)
             {
-                string right;
                 ConvertSidToStringSid(item.Sid, out string left);
-                ConvertSidToStringSid(intPtr, out right);
+                ConvertSidToStringSid(intPtr, out string right);
 
                 if (left == right)
                 {
