@@ -9,7 +9,7 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center">
             <Label VerticalContentAlignment="Center" Margin="10,0,0,0">Filter the Apps:</Label>
-            <TextBox Name="txtFilter" Grid.Row="0" Width="185" HorizontalAlignment="Left" Height="30" KeyUp="txtFilter_KeyUp" Margin="0,5" VerticalContentAlignment="Center" Cursor="IBeam" Background="{x:Null}"/>
+            <TextBox Name="txtFilter" Grid.Row="0" Width="185" HorizontalAlignment="Left" Height="30" KeyUp="txtFilter_KeyUp" Margin="0,5" VerticalContentAlignment="Center" Cursor="IBeam" Background="{x:Null}" />
             <CheckBox Name="Loopback_Enabled" Click="Loopback_Click_Enabled" VerticalContentAlignment="Center" Margin="10,0" Background="{x:Null}">Enabled</CheckBox>
             <CheckBox Name="Loopback_Disabled" Click="Loopback_Click_Disabled" VerticalContentAlignment="Center" Margin="10,0" Background="{x:Null}">Disabled</CheckBox>
             <Button x:Name="btnSave" Width="100" Height="30" Click="btnSave_Click" Margin="10,5" Content="Save" Background="#FFDDDDDD" />
@@ -27,7 +27,7 @@
                 <DataGridTextColumn Header="App Display Name" Binding="{Binding Path=displayName}" CanUserResize="False" IsReadOnly="True" />
                 <DataGridTextColumn Header="App Full Name" Binding="{Binding Path=appContainerName}" CanUserResize="False" IsReadOnly="True" />
                 <DataGridTextColumn Header="Directory" Binding="{Binding Path=workingDirectory}" CanUserResize="False" IsReadOnly="True" />
-                <!--<DataGridTextColumn Header="App SID" Binding="{Binding Path=userSid}" CanUserResize="False" IsReadOnly="True" />!-->
+                <!--<DataGridTextColumn Header="App SID" Binding="{Binding Path=userSid}" CanUserResize="False" IsReadOnly="True" />-->
             </DataGrid.Columns>
         </DataGrid>
         <StatusBar x:Name="SBar" Grid.Column="0" Grid.Row="3" VerticalAlignment="Bottom" Background="LightBlue" DockPanel.Dock="Bottom" Height="30">
