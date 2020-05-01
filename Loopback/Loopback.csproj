@@ -5,7 +5,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
     <AssemblyName>Loopback</AssemblyName>
-    <ApplicationIcon>Windows2.ico</ApplicationIcon>
+    <ApplicationIcon>Application.ico</ApplicationIcon>
     <Authors />
     <Company />
   </PropertyGroup>
