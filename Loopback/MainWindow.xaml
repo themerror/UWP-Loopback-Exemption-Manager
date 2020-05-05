@@ -2,7 +2,6 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Loopback Exemption Manager" Height="549.196" Width="851.608" Closing="Window_Closing" Icon="assets/Windows.png" ScrollViewer.HorizontalScrollBarVisibility="Auto" MinWidth="800" MinHeight="595">
-    <!---->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
