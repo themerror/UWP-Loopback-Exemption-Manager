@@ -24,10 +24,9 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="App Display Name" Binding="{Binding Path=displayName}" CanUserResize="False" IsReadOnly="True" />
-                <DataGridTextColumn Header="App Full Name" Binding="{Binding Path=appContainerName}" CanUserResize="False" IsReadOnly="True" />
-                <DataGridTextColumn Header="Directory" Binding="{Binding Path=workingDirectory}" CanUserResize="False" IsReadOnly="True" />
-                <!--<DataGridTextColumn Header="App SID" Binding="{Binding Path=userSid}" CanUserResize="False" IsReadOnly="True" />-->
+                <DataGridTextColumn Header="App Display Name" Binding="{Binding Path=DisplayName}" CanUserResize="False" IsReadOnly="True" />
+                <DataGridTextColumn Header="App Full Name" Binding="{Binding Path=AppContainerName}" CanUserResize="False" IsReadOnly="True" />
+                <DataGridTextColumn Header="Directory" Binding="{Binding Path=WorkingDirectory}" CanUserResize="False" IsReadOnly="True" />
             </DataGrid.Columns>
         </DataGrid>
         <StatusBar x:Name="SBar" Grid.Column="0" Grid.Row="3" VerticalAlignment="Bottom" Background="LightBlue" DockPanel.Dock="Bottom" Height="30">

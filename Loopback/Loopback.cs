@@ -11,28 +11,28 @@ namespace Loopback
     public class LoopUtil
     {
         //https://docs.microsoft.com/zh-cn/windows/win32/api/winnt/ns-winnt-sid_and_attributes
-        [StructLayoutAttribute(LayoutKind.Sequential)]
+        [StructLayout(LayoutKind.Sequential)]
         internal struct SID_AND_ATTRIBUTES
         {
             public IntPtr Sid;
             public uint Attributes;
         }
 
-        [StructLayoutAttribute(LayoutKind.Sequential)]
+        [StructLayout(LayoutKind.Sequential)]
         internal struct INET_FIREWALL_AC_CAPABILITIES
         {
             public uint count;
             public IntPtr capabilities; //SID_AND_ATTRIBUTES
         }
 
-        [StructLayoutAttribute(LayoutKind.Sequential)]
+        [StructLayout(LayoutKind.Sequential)]
         internal struct INET_FIREWALL_AC_BINARIES
         {
             public uint count;
             public IntPtr binaries;
         }
 
-        [StructLayoutAttribute(LayoutKind.Sequential)]
+        [StructLayout(LayoutKind.Sequential)]
         internal struct INET_FIREWALL_APP_CONTAINER
         {
             internal IntPtr appContainerSid;
@@ -106,18 +106,18 @@ namespace Loopback
 
         public class AppContainer
         {
-            public string appContainerName { get; set; }
-            public string displayName { get; set; }
-            public string workingDirectory { get; set; }
+            public string AppContainerName { get; set; }
+            public string DisplayName { get; set; }
+            public string WorkingDirectory { get; set; }
             public string StringSid { get; set; }
-            public List<uint> capabilities { get; set; }
+            public List<uint> Capabilities { get; set; }
             public bool LoopUtil { get; set; }
 
             public AppContainer(string _appContainerName, string _displayName, string _workingDirectory, IntPtr _sid)
             {
-                appContainerName = _appContainerName;
-                displayName = _displayName;
-                workingDirectory = _workingDirectory;
+                AppContainerName = _appContainerName;
+                DisplayName = _displayName;
+                WorkingDirectory = _workingDirectory;
                 ConvertSidToStringSid(_sid, out string tempSid);
                 StringSid = tempSid;
             }
