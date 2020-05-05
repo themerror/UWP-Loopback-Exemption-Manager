@@ -111,7 +111,7 @@ namespace Loopback
 
             foreach (LoopUtil.AppContainer app in _loop.Apps)
             {
-                string appName = app.displayName.ToUpper();
+                string appName = app.DisplayName.ToUpper();
 
                 if (string.IsNullOrEmpty(filter) || appName.Contains(appsInFilter))
                 {
