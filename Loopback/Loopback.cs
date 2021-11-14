@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -104,14 +105,24 @@ namespace Loopback
 #pragma warning restore CA1712 // Do not prefix enum values with type name
         }
 
-        public class AppContainer
+        public class AppContainer : INotifyPropertyChanged
         {
+            private bool loopUtil;
+
             public string AppContainerName { get; set; }
             public string DisplayName { get; set; }
             public string WorkingDirectory { get; set; }
             public string StringSid { get; set; }
             public List<uint> Capabilities { get; set; }
-            public bool LoopUtil { get; set; }
+            public bool LoopUtil
+            {
+                get => loopUtil;
+                set
+                {
+                    loopUtil = value;
+                    PropertyChanged?.Invoke(this, new(nameof(LoopUtil)));
+                }
+            }
 
             public AppContainer(string _appContainerName, string _displayName, string _workingDirectory, IntPtr _sid)
             {
@@ -121,6 +132,8 @@ namespace Loopback
                 ConvertSidToStringSid(_sid, out string tempSid);
                 StringSid = tempSid;
             }
+
+            public event PropertyChangedEventHandler PropertyChanged;
         }
 
         internal List<LoopUtil.INET_FIREWALL_APP_CONTAINER> _AppList;

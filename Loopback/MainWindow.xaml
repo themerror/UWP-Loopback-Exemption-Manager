@@ -43,8 +43,16 @@
 				Background="{x:Null}"
 				Click="Loopback_Click_Disabled">
 				Disabled
-			</CheckBox>
-			<Button
+            </CheckBox>
+            <Button
+				x:Name="btnSelectAll"
+				Width="100"
+				Height="30"
+				Margin="10,5"
+				Background="#FFDDDDDD"
+				Click="btnSelectAll_Click"
+				Content="Select All" />
+            <Button
 				x:Name="btnSave"
 				Width="100"
 				Height="30"
