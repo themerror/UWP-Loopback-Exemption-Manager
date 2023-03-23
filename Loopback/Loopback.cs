@@ -266,7 +266,7 @@ namespace Loopback
             return list;
         }
 
-        public bool SaveLoopbackState()
+        public uint SaveLoopbackState()
         {
             var countEnabled = CountEnabledLoopUtil();
             SID_AND_ATTRIBUTES[] arr = new SID_AND_ATTRIBUTES[countEnabled];
@@ -283,14 +283,14 @@ namespace Loopback
                     count++;
                 }
             }
-
-            if (NetworkIsolationSetAppContainerConfig((uint)countEnabled, arr) == 0)
+            var save= NetworkIsolationSetAppContainerConfig((uint)countEnabled, arr);
+            if (save == 0)
             {
-                return true;
+                return 0;
             }
             else
             {
-                return false;
+                return save;
             }
         }
 
