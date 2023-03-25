@@ -283,15 +283,7 @@ namespace Loopback
                     count++;
                 }
             }
-            var save= NetworkIsolationSetAppContainerConfig((uint)countEnabled, arr);
-            if (save == 0)
-            {
-                return 0;
-            }
-            else
-            {
-                return save;
-            }
+            return NetworkIsolationSetAppContainerConfig((uint)countEnabled, arr);
         }
 
         private int CountEnabledLoopUtil()
