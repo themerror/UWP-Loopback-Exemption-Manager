@@ -52,15 +52,17 @@ namespace Loopback
 				Log("nothing to save");
 				return;
 			}
-
-			isDirty = false;
-			if (_loop.SaveLoopbackState())
+			var save = _loop.SaveLoopbackState();
+			if (save == 0)
 			{
-				Log(" saved loopback excemptions");
+                isDirty = false;
+                Log("Successfully set loopback excemptions");
 			}
 			else
 			{
-				Log(" ERROR SAVING");
+				var text = "save error,code " + save.ToString();
+                Log(text);
+                MessageBox.Show(this, text, "save error", MessageBoxButton.OK, MessageBoxImage.Error);
 			}
 		}
 
@@ -91,7 +93,7 @@ namespace Loopback
 
 		private void Log(String logtxt)
 		{
-			txtStatus.Text = DateTime.Now.ToString("hh:mm:ss.fff ") + logtxt;
+			txtStatus.Text = DateTime.Now.ToString("T") +"  "+ logtxt;
 		}
 
 		private void Loopback_Click_Disabled(object sender, RoutedEventArgs e)
