@@ -133,5 +133,17 @@ namespace Loopback
 			//To Do
 			_loop.FreeResources();
 		}
-	}
+
+        private void btnSelectAll_Click(object sender, RoutedEventArgs e)
+        {
+			foreach (var i in _loop.Apps)
+            {
+				if (!i.LoopUtil)
+				{
+					i.LoopUtil = true;
+					isDirty = true;
+				}
+            }
+        }
+    }
 }
